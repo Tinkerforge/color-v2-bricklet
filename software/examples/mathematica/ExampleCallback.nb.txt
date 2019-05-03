@@ -1,0 +1,32 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Color Bricklet 2.0*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+c=NETNew["Tinkerforge.BrickletColorV2",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Callback function for color callback*)
+ColorCB[sender_,r_,g_,b_,c_]:=
+ Module[{},
+  Print["Color [R]: "<>ToString[r]];
+  Print["Color [G]: "<>ToString[g]];
+  Print["Color [B]: "<>ToString[b]];
+  Print["Color [C]: "<>ToString[c]]
+ ]
+
+AddEventHandler[c@ColorCallback,ColorCB]
+
+(*Set period for color callback to 0.1s (100ms)*)
+c@SetColorCallbackConfiguration[100,False]
+
+Input["Click OK to exit"]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[c]
+ReleaseNETObject[ipcon]

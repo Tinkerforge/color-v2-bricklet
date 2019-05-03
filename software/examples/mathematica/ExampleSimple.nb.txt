@@ -1,0 +1,25 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Color Bricklet 2.0*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+c=NETNew["Tinkerforge.BrickletColorV2",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Get current color*)
+r=0;g=0;b=0;cU=0
+c@GetColor[r,g,b,cU]
+
+Print["Color [R]: "<>ToString[r]]
+Print["Color [G]: "<>ToString[g]]
+Print["Color [B]: "<>ToString[b]]
+Print["Color [C]: "<>ToString[cU]]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[c]
+ReleaseNETObject[ipcon]
