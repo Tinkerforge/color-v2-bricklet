@@ -81,8 +81,8 @@ void communication_init(void);
 #define FID_GET_COLOR_TEMPERATURE_CALLBACK_CONFIGURATION 11
 #define FID_SET_LIGHT 13
 #define FID_GET_LIGHT 14
-#define FID_SET_CONFIG 15
-#define FID_GET_CONFIG 16
+#define FID_SET_CONFIGURATION 15
+#define FID_GET_CONFIGURATION 16
 
 #define FID_CALLBACK_COLOR 4
 #define FID_CALLBACK_ILLUMINANCE 8
@@ -142,17 +142,17 @@ typedef struct {
 	TFPMessageHeader header;
 	uint8_t gain;
 	uint8_t integration_time;
-} __attribute__((__packed__)) SetConfig;
+} __attribute__((__packed__)) SetConfiguration;
 
 typedef struct {
 	TFPMessageHeader header;
-} __attribute__((__packed__)) GetConfig;
+} __attribute__((__packed__)) GetConfiguration;
 
 typedef struct {
 	TFPMessageHeader header;
 	uint8_t gain;
 	uint8_t integration_time;
-} __attribute__((__packed__)) GetConfig_Response;
+} __attribute__((__packed__)) GetConfiguration_Response;
 
 
 // Function prototypes
@@ -161,8 +161,8 @@ BootloaderHandleMessageResponse set_color_callback_configuration(const SetColorC
 BootloaderHandleMessageResponse get_color_callback_configuration(const GetColorCallbackConfiguration *data, GetColorCallbackConfiguration_Response *response);
 BootloaderHandleMessageResponse set_light(const SetLight *data);
 BootloaderHandleMessageResponse get_light(const GetLight *data, GetLight_Response *response);
-BootloaderHandleMessageResponse set_config(const SetConfig *data);
-BootloaderHandleMessageResponse get_config(const GetConfig *data, GetConfig_Response *response);
+BootloaderHandleMessageResponse set_configuration(const SetConfiguration *data);
+BootloaderHandleMessageResponse get_configuration(const GetConfiguration *data, GetConfiguration_Response *response);
 
 // Callbacks
 bool handle_color_callback(void);

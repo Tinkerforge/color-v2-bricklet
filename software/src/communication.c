@@ -50,8 +50,8 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_GET_COLOR_TEMPERATURE_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration_uint16_t(message, response, &callback_value_color_temperature);
 		case FID_SET_LIGHT: return set_light(message);
 		case FID_GET_LIGHT: return get_light(message, response);
-		case FID_SET_CONFIG: return set_config(message);
-		case FID_GET_CONFIG: return get_config(message, response);
+		case FID_SET_CONFIGURATION: return set_configuration(message);
+		case FID_GET_CONFIGURATION: return get_configuration(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
@@ -98,7 +98,7 @@ BootloaderHandleMessageResponse get_light(const GetLight *data, GetLight_Respons
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
-BootloaderHandleMessageResponse set_config(const SetConfig *data) {
+BootloaderHandleMessageResponse set_configuration(const SetConfiguration *data) {
 	if((data->gain > COLOR_V2_GAIN_60X) || (data->integration_time > COLOR_V2_INTEGRATION_TIME_700MS)) {
 		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
 	}
@@ -110,8 +110,8 @@ BootloaderHandleMessageResponse set_config(const SetConfig *data) {
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
-BootloaderHandleMessageResponse get_config(const GetConfig *data, GetConfig_Response *response) {
-	response->header.length    = sizeof(GetConfig_Response);
+BootloaderHandleMessageResponse get_configuration(const GetConfiguration *data, GetConfiguration_Response *response) {
+	response->header.length    = sizeof(GetConfiguration_Response);
 	response->integration_time = tcs3472.config_integration_time;
 	response->gain             = tcs3472.config_gain;
 
