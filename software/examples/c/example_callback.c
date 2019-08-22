@@ -37,7 +37,7 @@ int main(void) {
 	// Register color callback to function cb_color
 	color_v2_register_callback(&c,
 	                           COLOR_V2_CALLBACK_COLOR,
-	                           (void *)cb_color,
+	                           (void (*)(void))cb_color,
 	                           NULL);
 
 	// Set period for color callback to 0.1s (100ms)
