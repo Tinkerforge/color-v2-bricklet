@@ -29,5 +29,5 @@ if __name__ == "__main__":
     # Set period for color callback to 0.1s (100ms)
     c.set_color_callback_configuration(100, False)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()

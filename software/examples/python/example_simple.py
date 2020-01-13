@@ -23,5 +23,5 @@ if __name__ == "__main__":
     print("Color [B]: " + str(b))
     print("Color [C]: " + str(c_))
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
