@@ -1,13 +1,9 @@
-
-
 #include "bindings/hal_common.h"
 #include "bindings/bricklet_color_v2.h"
 
 #define UID "XYZ" // Change XYZ to the UID of your Color Bricklet 2.0
 
 void check(int rc, const char* msg);
-
-
 
 // Callback function for color callback
 void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b, uint16_t c,
@@ -20,7 +16,6 @@ void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b, uint1
 	tf_hal_printf("Color [C]: %u\n", c);
 	tf_hal_printf("\n");
 }
-
 
 TF_ColorV2 c;
 
