@@ -23,15 +23,13 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_color_v2_create(&c, UID, hal), "create device object");
 
-
 	// Register color callback to function color_handler
 	tf_color_v2_register_color_callback(&c,
-	                                   color_handler,
-	                                   NULL);
+	                                    color_handler,
+	                                    NULL);
 
 	// Set period for color callback to 0.1s (100ms)
 	tf_color_v2_set_color_callback_configuration(&c, 100, false);
-
 }
 
 void example_loop(TF_HalContext *hal) {

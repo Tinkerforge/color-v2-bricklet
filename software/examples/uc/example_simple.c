@@ -11,7 +11,6 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_color_v2_create(&c, UID, hal), "create device object");
 
-
 	// Get current color
 	uint16_t r, g, b, c_;
 	check(tf_color_v2_get_color(&c, &r, &g, &b, &c_), "get color");
@@ -20,7 +19,6 @@ void example_setup(TF_HalContext *hal) {
 	tf_hal_printf("Color [G]: %u\n", g);
 	tf_hal_printf("Color [B]: %u\n", b);
 	tf_hal_printf("Color [C]: %u\n", c_);
-
 }
 
 void example_loop(TF_HalContext *hal) {
