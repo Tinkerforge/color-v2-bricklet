@@ -5,9 +5,13 @@
 
 void check(int rc, const char* msg);
 
+void example_setup(TF_HalContext *hal);
+void example_loop(TF_HalContext *hal);
+
+
 // Callback function for color callback
-void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b, uint16_t c,
-                   void *user_data) {
+static void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b,
+                          uint16_t c, void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
 	tf_hal_printf("Color [R]: %u\n", r);
@@ -17,7 +21,7 @@ void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b, uint1
 	tf_hal_printf("\n");
 }
 
-TF_ColorV2 c;
+static TF_ColorV2 c;
 
 void example_setup(TF_HalContext *hal) {
 	// Create device object
