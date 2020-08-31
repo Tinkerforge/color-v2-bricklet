@@ -19,10 +19,10 @@ void example_setup(TF_HalContext *hal) {
 	uint16_t r, g, b, c_;
 	check(tf_color_v2_get_color(&c, &r, &g, &b, &c_), "get color");
 
-	tf_hal_printf("Color [R]: %u\n", r);
-	tf_hal_printf("Color [G]: %u\n", g);
-	tf_hal_printf("Color [B]: %u\n", b);
-	tf_hal_printf("Color [C]: %u\n", c_);
+	tf_hal_printf("Color [R]: %I16u\n", r);
+	tf_hal_printf("Color [G]: %I16u\n", g);
+	tf_hal_printf("Color [B]: %I16u\n", b);
+	tf_hal_printf("Color [C]: %I16u\n", c_);
 }
 
 void example_loop(TF_HalContext *hal) {

@@ -14,10 +14,10 @@ static void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b
                           uint16_t c, void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
-	tf_hal_printf("Color [R]: %u\n", r);
-	tf_hal_printf("Color [G]: %u\n", g);
-	tf_hal_printf("Color [B]: %u\n", b);
-	tf_hal_printf("Color [C]: %u\n", c);
+	tf_hal_printf("Color [R]: %I16u\n", r);
+	tf_hal_printf("Color [G]: %I16u\n", g);
+	tf_hal_printf("Color [B]: %I16u\n", b);
+	tf_hal_printf("Color [C]: %I16u\n", c);
 	tf_hal_printf("\n");
 }
 
