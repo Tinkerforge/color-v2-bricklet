@@ -9,8 +9,8 @@
 
 void check(int rc, const char* msg);
 
-void example_setup(TF_HalContext *hal);
-void example_loop(TF_HalContext *hal);
+void example_setup(TF_HAL *hal);
+void example_loop(TF_HAL *hal);
 
 
 // Callback function for color callback
@@ -27,7 +27,7 @@ static void color_handler(TF_ColorV2 *device, uint16_t r, uint16_t g, uint16_t b
 
 static TF_ColorV2 c;
 
-void example_setup(TF_HalContext *hal) {
+void example_setup(TF_HAL *hal) {
 	// Create device object
 	check(tf_color_v2_create(&c, UID, hal), "create device object");
 
@@ -40,7 +40,7 @@ void example_setup(TF_HalContext *hal) {
 	tf_color_v2_set_color_callback_configuration(&c, 100, false);
 }
 
-void example_loop(TF_HalContext *hal) {
+void example_loop(TF_HAL *hal) {
 	// Poll for callbacks
 	tf_hal_callback_tick(hal, 0);
 }
