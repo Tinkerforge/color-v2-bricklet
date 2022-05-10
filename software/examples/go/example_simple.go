@@ -21,10 +21,10 @@ func main() {
 	// Get current color.
 	r, g, b, c_, _ := c.GetColor()
 
-	fmt.Printf("Color [R]: \n", r)
-	fmt.Printf("Color [G]: \n", g)
-	fmt.Printf("Color [B]: \n", b)
-	fmt.Printf("Color [C]: \n", c_)
+	fmt.Printf("Color [R]: %d\n", r)
+	fmt.Printf("Color [G]: %d\n", g)
+	fmt.Printf("Color [B]: %d\n", b)
+	fmt.Printf("Color [C]: %d\n", c_)
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()
